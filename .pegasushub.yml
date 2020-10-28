@@ -1,0 +1,4 @@
+pegasus:
+  version: 
+    min: 5.0.0
+generator: workflow_generator.py
