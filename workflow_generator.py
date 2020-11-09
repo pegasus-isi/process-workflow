@@ -30,8 +30,7 @@ class ProcessWorkflow:
     def write(self):
         if not self.sc is None:
             self.sc.write()
-        if not self.props is None:
-            self.props.write()
+        self.props.write()
         self.tc.write()
         self.wf.write()
 
@@ -86,7 +85,7 @@ class ProcessWorkflow:
         # Add a ls job
         listing = File("listing.txt")
         ls_job = (
-            Job("ls").add_args("-l", "/").set_stdout(listing, register_replica=False)
+            Job("ls").add_args("-l", "/").set_stdout(listing, register_replica=True)
         )
 
         self.wf.add_jobs(ls_job)
@@ -123,11 +122,12 @@ if __name__ == "__main__":
     workflow = ProcessWorkflow(args.output)
 
     if not args.skip_sites_catalog:
-        print("Creating workflow properties...")
-        workflow.create_pegasus_properties()
         print("Creating execution sites...")
         workflow.create_sites_catalog(args.execution_site_name)
 
+    print("Creating workflow properties...")
+    workflow.create_pegasus_properties()
+    
     print("Creating transformation catalog...")
     workflow.create_transformation_catalog(args.execution_site_name)
 
