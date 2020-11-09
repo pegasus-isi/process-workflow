@@ -85,7 +85,7 @@ class ProcessWorkflow:
         # Add a ls job
         listing = File("listing.txt")
         ls_job = (
-            Job("ls").add_args("-l", "/").set_stdout(listing, register_replica=True)
+            Job("ls").add_args("-l", "/").set_stdout(listing, stage_out=True, register_replica=True)
         )
 
         self.wf.add_jobs(ls_job)
