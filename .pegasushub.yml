@@ -1,6 +1,5 @@
 pegasus:
   version: 
     min: 5.0.0
-    max: 5.0.0
 scripts:
   generator: workflow_generator.py
