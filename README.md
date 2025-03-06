@@ -12,11 +12,9 @@
 
 <b>workflow_generator.py:</b> Creates the abstract workflow, the replica catalog, the transformation catalog, and the site catalog. It has one job: ls This is used to invoke the executables which are present in bin folder.
 
-<b>Input Folder:</b> Contains all the input files to be used in the workflow.
-
 # How to run the workflow?
 ```
-# Plan and run the workflow generator to create an abstract workflow for the given input files
+# Plan and run the workflow generator to create an abstract workflow
 ./workflow_generator.py
 ./plan.sh workflow.yaml
 `````
